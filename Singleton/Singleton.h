@@ -1,3 +1,6 @@
+#ifndef SINGLETON_H
+#define SINGLETON_H
+
 #include <stdio.h>
 
 class Singleton
@@ -8,12 +11,14 @@ public:
 		if(instance == NULL)
 			instance = new Singleton();
 		return instance;	
-	}
+	};
 	
 private:
-	Singleton()
-	{
-	}
+	Singleton() {};
 
 	static Singleton* instance;
 };
+
+Singleton* Singleton::instance = NULL;
+
+#endif
