@@ -21,4 +21,6 @@ private:
 
 Singleton* Singleton::instance = NULL;
 
+//weakless: when will instance be released? when will destructor of Singleton be called?
+
 #endif
