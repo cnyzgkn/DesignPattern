@@ -2,6 +2,7 @@
 #define SINGLETON_H
 
 #include <stdio.h>
+#include <iostream>
 
 class Singleton
 {
@@ -14,7 +15,12 @@ public:
 	};
 	
 private:
-	Singleton() {};
+	Singleton() {
+		std::cout << "Singleton constructor" << std::endl;
+	};
+	~Singleton() {
+		std::cout << "Singleton destructor" << std::endl;
+	};
 
 	static Singleton* instance;
 };

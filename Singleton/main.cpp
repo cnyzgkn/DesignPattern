@@ -36,9 +36,36 @@ void createSingletonLocalStatic()
 	std::cout << "instance = " << instance << std::endl;
 }
 
-void createThreads1()
+void createMulti_Singleton()
 {
-	std::cout << "createThreads1" << std::endl;
+	std::cout << "createThreads_Singleton" << std::endl;
+	for(int i = 0; i < 10; i++)
+	{
+		createSingleton();
+	}
+}
+
+void createMulti_SingletonStatic()
+{
+	std::cout << "createMulti_SingletonStatic" << std::endl;
+	for(int i = 0; i < 10; i++)
+	{
+		createSingletonStatic();
+	}
+}
+
+void createMulti_SingletonGarbo()
+{
+	std::cout << "createMulti_SingletonGarbo" << std::endl;
+	for(int i = 0; i < 10; i++)
+	{
+		createSingletonGarbo();
+	}
+}
+
+void createThreads_Singleton()
+{
+	std::cout << "createThreads_Singleton" << std::endl;
 	std::thread threads[10];
 	for(int i = 0; i < 10; i++)
 	{
@@ -49,9 +76,9 @@ void createThreads1()
 		i.join();
 }
 
-void createThreads2()
+void createThreads_SingletonStatic()
 {
-	std::cout << "createThreads2" << std::endl;
+	std::cout << "createThreads_SingletonStatic" << std::endl;
 	std::thread threads[10];
 	for(int i = 0; i < 10; i++)
 	{
@@ -62,9 +89,9 @@ void createThreads2()
 		i.join();
 }
 
-void createThreads3()
+void createThreads_SingletonThreadSafe()
 {
-	std::cout << "createThreads3" << std::endl;
+	std::cout << "createThreads_SingletonThreadSafe" << std::endl;
 	std::thread threads[10];
 	for(int i = 0; i < 10; i++)
 	{
@@ -75,9 +102,9 @@ void createThreads3()
 		i.join();
 }
 
-void createThreads4()
+void createThreads_SingletonGarbo()
 {
-	std::cout << "createThreads4" << std::endl;
+	std::cout << "createThreads_SingletonGarbo" << std::endl;
 	std::thread threads[10];
 	for(int i = 0; i < 10; i++)
 	{
@@ -88,9 +115,9 @@ void createThreads4()
 		i.join();
 }
 
-void createThreads5()
+void createThreads_SingletonLocalStatic()
 {
-	std::cout << "createThreads5" << std::endl;
+	std::cout << "createThreads_SingletonLocalStatic" << std::endl;
 	std::thread threads[10];
 	for(int i = 0; i < 10; i++)
 	{
@@ -103,10 +130,16 @@ void createThreads5()
 
 int main()
 {
-	createThreads1();
-	createThreads2();
-	createThreads3();
-	createThreads4();
-	createThreads5();
+	//createMulti_Singleton();
+	//createThreads_Singleton();
+
+	//createThreads_SingletonThreadSafe();
+
+	createThreads_SingletonStatic();
+
+	//createMulti_SingletonGarbo();
+	//createThreads_SingletonGarbo();
+
+	//createThreads_SingletonLocalStatic();
 }
 

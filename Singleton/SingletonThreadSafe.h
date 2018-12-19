@@ -18,7 +18,12 @@ public:
 	};
 	
 private:
-	SingletonThreadSafe() {};
+	SingletonThreadSafe() {
+		std::cout << "SingletonThreadSafe constructor" << std::endl;
+	};
+	~SingletonThreadSafe() {
+		std::cout << "SingletonThreadSafe destructor" << std::endl;
+	};
 
 	static SingletonThreadSafe* instance;
 };

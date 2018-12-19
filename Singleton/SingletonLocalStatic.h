@@ -2,6 +2,7 @@
 #define SINGLETONLOCALSTATIC_H
 
 #include <stdio.h>
+#include <iostream>
 
 //avoid inner class
 class SingletonLocalStatic
@@ -14,7 +15,13 @@ public:
 	};
 	
 private:
-	SingletonLocalStatic() {};
+	SingletonLocalStatic() {
+		std::cout << "SingletonLocalStatic constructor" << std::endl;
+	};
+
+	~SingletonLocalStatic() {
+		std::cout << "SingletonLocalStatic destructor" << std::endl;
+	};
 
 	//SingletonLocalStatic singleton = SingletonLocalStatic::getInstance() uses object copy which is not singleton
 	//forbit copy constructor and operator assignment

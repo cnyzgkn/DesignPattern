@@ -14,7 +14,12 @@ public:
 
 private:
 	const static SingletonStatic* instance;
-	SingletonStatic() {};
+	SingletonStatic() {
+		std::cout << "SingletonStatic constructor" << std::endl;
+	};
+	~SingletonStatic() {
+		std::cout << "SingletonStatic destructor" << std::endl;
+	};
 };
 
 //initilization at process begin, before invoke main

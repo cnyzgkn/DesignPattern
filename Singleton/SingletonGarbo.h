@@ -14,19 +14,30 @@ public:
 	};
 	
 private:
-	SingletonGarbo() {};
+	SingletonGarbo() {
+		std::cout << "SingletonGarbo constructor" << std::endl;
+	};
+	~SingletonGarbo() {
+		std::cout << "SingletonGarbo destructor" << std::endl;
+	};
 
 	static SingletonGarbo* instance;
 
 	//inner class
-	class Garbo
+	struct Garbo
 	{
-	public:
+		Garbo() {
+			std::cout << "Garbo constructor" << std::endl;
+		};
 		// the only purpose of Garbo is to delete instance in its destructor
 		~Garbo()
 		{
+			std::cout << "Garbo destructor" << std::endl;
 			if(SingletonGarbo::instance)
+			{
 				delete SingletonGarbo::instance;
+				SingletonGarbo::instance = NULL;
+			}
 		}
 	};
 
@@ -34,5 +45,7 @@ private:
 };
 
 SingletonGarbo* SingletonGarbo::instance = NULL;
+
+//SingletonGarbo::Garbo SingletonGarbo::garbo; //make sure static Garbo object release when progress shut down
 
 #endif
