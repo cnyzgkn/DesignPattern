@@ -29,4 +29,7 @@ private:
 	SingletonLocalStatic& operator=(const SingletonLocalStatic&);
 };
 
+//weakless:
+//1. still not thread safe
+
 #endif

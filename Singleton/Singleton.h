@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <iostream>
 
+//lazy
 class Singleton
 {
 public:
@@ -12,6 +13,15 @@ public:
 		if(instance == NULL)
 			instance = new Singleton();
 		return instance;	
+	};
+
+	virtual bool destroy()
+	{
+		if(instance != NULL)
+		{
+			delete instance;
+			instance = NULL;
+		}
 	};
 	
 private:
@@ -27,6 +37,7 @@ private:
 
 Singleton* Singleton::instance = NULL;
 
-//weakless: when will instance be released? when will destructor of Singleton be called?
-
+//weakless: 
+//1. instance not released -> solution: add destroy() method
+//2. not thread safe
 #endif

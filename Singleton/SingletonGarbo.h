@@ -28,6 +28,7 @@ private:
 	{
 		Garbo() {
 			std::cout << "Garbo constructor" << std::endl;
+			SingletonGarbo::getInstance();
 		};
 		// the only purpose of Garbo is to delete instance in its destructor
 		~Garbo()
@@ -44,8 +45,6 @@ private:
 	static Garbo garbo; //system will destruct all static varialbes when progress shut down
 };
 
-SingletonGarbo* SingletonGarbo::instance = NULL;
-
-//SingletonGarbo::Garbo SingletonGarbo::garbo; //make sure static Garbo object release when progress shut down
+SingletonGarbo::Garbo SingletonGarbo::garbo; //make sure static Garbo object release when progress shut down
 
 #endif
